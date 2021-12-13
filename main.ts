@@ -1,139 +1,275 @@
-controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.stopAnimation(animation.AnimationTypes.All, mySprite)
-    mySprite.setImage(img`
-        . . . . . . . f f f f f . . . . 
-        . . . . . . f e e e e e f . . . 
-        . . . . . f e e e d d d d f . . 
-        . . . . . f e e d f d d f d c . 
-        . . . . f f e e d f d d f d c . 
-        . . . f d d e e d d d d e e d c 
-        . . . c d b e e d d c d d d d c 
-        f f . c d b e e e d d c c c c c 
-        f e f . c f f e e e d d d d f . 
-        f e f . f e e e e f f f f f f . 
-        f e f f e e e e e e e f f f f . 
-        . f f e e e e f e f d d f d d f 
-        . . f e e e e f e f b d f b d f 
-        . . f e f f f f f f f f f f f f 
-        . . f d d c f . . . . . . . . . 
-        . . f f f f . . . . . . . . . . 
-        `)
-    mySprite.setVelocity(0, -50)
-    pause(600)
-    mySprite.setImage(img`
-        . . . . . . . f f f f f . . . . 
-        . . . . f f f e e e e e f . . . 
-        . . . f d d e e e e d d d f . . 
-        . . . c d b e e e d d d d d c . 
-        . . . c d b e e d d d d d d c . 
-        . f f . c f e e d f d d f d d c 
-        f e f . . f e e d f d d f d d c 
-        f e f . . f e e d d d d e e d c 
-        f e f . . f f e e d c d d d f . 
-        f e f . f e e e e e d f f f . . 
-        . f f f e e e e e e e f . . . . 
-        . . f f b e e e e e f f . . . . 
-        . . f f d d c e e f f e f . . . 
-        . . . . f f f c d d b d d f . . 
-        . . . . . f f d d d c d d f . . 
-        . . . . . . f f f f f f f . . . 
-        `)
-    mySprite.setVelocity(0, 50)
-    pause(600)
-    mySprite.setVelocity(0, 0)
-    animation.runImageAnimation(
-    mySprite,
-    [img`
-        . . . . . . . f f f f f . . . . 
-        . . . . . . f e e e e e f . . . 
-        . . . . . f e e e d d d d f . . 
-        . . . . f f e e d f d d f d c . 
-        . . . f d d e e d f d d f d c . 
-        . . . c d b e e d d d d e e d c 
-        f f . c d b e e d d c d d d d c 
-        f e f . c f e e d d d c c c c c 
-        f e f . . f f e e d d d d d f . 
-        f e f . f e e e e f f f f f . . 
-        f e f f e e e e e e e f . . . . 
-        . f f e e e e f e f f e f . . . 
-        . . f e e e e f e f f e f . . . 
-        . . . f e f f b d f b d f . . . 
-        . . . f d b b d d c d d f . . . 
-        . . . f f f f f f f f f . . . . 
-        `,img`
-        . . . . . . . f f f f f . . . . 
-        . . . . . . f e e e e e f . . . 
-        . . . . . f e e e d d d d f . . 
-        . . . . . f e e d f d d f d c . 
-        . . . . f f e e d f d d f d c . 
-        . . . f d d e e d d d d e e d c 
-        . . . c d b e e d d c d d d d c 
-        f f . c d b e e e d d c c c c c 
-        f e f . c f f e e e d d d d f . 
-        f e f . f e e e e f f f f f f . 
-        f e f f e e e e e e e f f f f . 
-        . f f e e e e f e f d d f d d f 
-        . . f e e e e f e f b d f b d f 
-        . . f e f f f f f f f f f f f f 
-        . . f d d c f . . . . . . . . . 
-        . . f f f f . . . . . . . . . . 
-        `,img`
-        . . . . . . . f f f f f . . . . 
-        . . . . . . f e e e e e f . . . 
-        . . . . f f e e e d d d d f . . 
-        . . . f d d e e d d d d d d c . 
-        . . . c d b e e d f d d f d c . 
-        f f . c d b e e d f d d f d d c 
-        f e f . c f e e d d d d e e d c 
-        f e f . . f e e e d c d d d d c 
-        f e f . . f f e e e d c c c f . 
-        f e f . f e e e e f f f f f . . 
-        . f f f e e e e e e e f . . . . 
-        . . f e e e e f e e f e f f . . 
-        . . f e e e f f f e e f f e f . 
-        . f b f f f f f f c d d b d d f 
-        . f d d c f . . f d d d c d d f 
-        . . f f f . . . f f f f f f f . 
-        `,img`
-        . . . . . . . f f f f f . . . . 
-        . . . . f f f e e e e e f . . . 
-        . . . f d d e e e e d d d f . . 
-        . . . c d b e e e d d d d d c . 
-        . . . c d b e e d d d d d d c . 
-        . f f . c f e e d f d d f d d c 
-        f e f . . f e e d f d d f d d c 
-        f e f . . f e e d d d d e e d c 
-        f e f . . f f e e d c d d d f . 
-        f e f . f e e e e e d f f f . . 
-        . f f f e e e e e e e f . . . . 
-        . . f f b e e e e e f f . . . . 
-        . . f f d d c e e f f e f . . . 
-        . . . . f f f c d d b d d f . . 
-        . . . . . f f d d d c d d f . . 
-        . . . . . . f f f f f f f . . . 
-        `,img`
-        . . . . . . . f f f f f . . . . 
-        . . . . . . f e e e e e f . . . 
-        . . . . . f e e e d d d d f . . 
-        . . . . f f e e d f d d f d c . 
-        . . . f d d e e d f d d f d c . 
-        . . . c d b e e d d d d e e d c 
-        . . . c d b e e d d c d d d d c 
-        . . . . c f e e e d d c c c c c 
-        . . . . . f f e e e d d d d f . 
-        . . . . f e e e e f f f f f . . 
-        f f . f e e e e e e f f . . . . 
-        f e . f e e f e e f e e f . . . 
-        f e . f e e e f e e f e e f . . 
-        f e f f e f b b f b d f d b f . 
-        f f f f e b d d f d d f d d f . 
-        . f f f f f f f f f f f f f . . 
-        `],
-    75,
-    true
-    )
+    JumpCounter += 1
+    if (JumpCounter <= 1) {
+        mySprite.setImage(img`
+            . . . . . . . f f f f f . . . . 
+            . . . . . . f e e e e e f . . . 
+            . . . . . f e e e d d d d f . . 
+            . . . . . f e e d f d d f d c . 
+            . . . . f f e e d f d d f d c . 
+            . . . f d d e e d d d d e e d c 
+            . . . c d b e e d d c d d d d c 
+            f f . c d b e e e d d c c c c c 
+            f e f . c f f e e e d d d d f . 
+            f e f . f e e e e f f f f f f . 
+            f e f f e e e e e e e f f f f . 
+            . f f e e e e f e f d d f d d f 
+            . . f e e e e f e f b d f b d f 
+            . . f e f f f f f f f f f f f f 
+            . . f d d c f . . . . . . . . . 
+            . . f f f f . . . . . . . . . . 
+            `)
+        mySprite.setVelocity(0, -70)
+        pause(500)
+        mySprite.setImage(img`
+            . . . . . . . f f f f f . . . . 
+            . . . . f f f e e e e e f . . . 
+            . . . f d d e e e e d d d f . . 
+            . . . c d b e e e d d d d d c . 
+            . . . c d b e e d d d d d d c . 
+            . f f . c f e e d f d d f d d c 
+            f e f . . f e e d f d d f d d c 
+            f e f . . f e e d d d d e e d c 
+            f e f . . f f e e d c d d d f . 
+            f e f . f e e e e e d f f f . . 
+            . f f f e e e e e e e f . . . . 
+            . . f f b e e e e e f f . . . . 
+            . . f f d d c e e f f e f . . . 
+            . . . . f f f c d d b d d f . . 
+            . . . . . f f d d d c d d f . . 
+            . . . . . . f f f f f f f . . . 
+            `)
+        mySprite.setVelocity(0, 70)
+        pause(500)
+        mySprite.setVelocity(0, 0)
+        animation.runImageAnimation(
+        mySprite,
+        [img`
+            . . . . . . . f f f f f . . . . 
+            . . . . . . f e e e e e f . . . 
+            . . . . . f e e e d d d d f . . 
+            . . . . f f e e d f d d f d c . 
+            . . . f d d e e d f d d f d c . 
+            . . . c d b e e d d d d e e d c 
+            f f . c d b e e d d c d d d d c 
+            f e f . c f e e d d d c c c c c 
+            f e f . . f f e e d d d d d f . 
+            f e f . f e e e e f f f f f . . 
+            f e f f e e e e e e e f . . . . 
+            . f f e e e e f e f f e f . . . 
+            . . f e e e e f e f f e f . . . 
+            . . . f e f f b d f b d f . . . 
+            . . . f d b b d d c d d f . . . 
+            . . . f f f f f f f f f . . . . 
+            `,img`
+            . . . . . . . f f f f f . . . . 
+            . . . . . . f e e e e e f . . . 
+            . . . . . f e e e d d d d f . . 
+            . . . . . f e e d f d d f d c . 
+            . . . . f f e e d f d d f d c . 
+            . . . f d d e e d d d d e e d c 
+            . . . c d b e e d d c d d d d c 
+            f f . c d b e e e d d c c c c c 
+            f e f . c f f e e e d d d d f . 
+            f e f . f e e e e f f f f f f . 
+            f e f f e e e e e e e f f f f . 
+            . f f e e e e f e f d d f d d f 
+            . . f e e e e f e f b d f b d f 
+            . . f e f f f f f f f f f f f f 
+            . . f d d c f . . . . . . . . . 
+            . . f f f f . . . . . . . . . . 
+            `,img`
+            . . . . . . . f f f f f . . . . 
+            . . . . . . f e e e e e f . . . 
+            . . . . f f e e e d d d d f . . 
+            . . . f d d e e d d d d d d c . 
+            . . . c d b e e d f d d f d c . 
+            f f . c d b e e d f d d f d d c 
+            f e f . c f e e d d d d e e d c 
+            f e f . . f e e e d c d d d d c 
+            f e f . . f f e e e d c c c f . 
+            f e f . f e e e e f f f f f . . 
+            . f f f e e e e e e e f . . . . 
+            . . f e e e e f e e f e f f . . 
+            . . f e e e f f f e e f f e f . 
+            . f b f f f f f f c d d b d d f 
+            . f d d c f . . f d d d c d d f 
+            . . f f f . . . f f f f f f f . 
+            `,img`
+            . . . . . . . f f f f f . . . . 
+            . . . . f f f e e e e e f . . . 
+            . . . f d d e e e e d d d f . . 
+            . . . c d b e e e d d d d d c . 
+            . . . c d b e e d d d d d d c . 
+            . f f . c f e e d f d d f d d c 
+            f e f . . f e e d f d d f d d c 
+            f e f . . f e e d d d d e e d c 
+            f e f . . f f e e d c d d d f . 
+            f e f . f e e e e e d f f f . . 
+            . f f f e e e e e e e f . . . . 
+            . . f f b e e e e e f f . . . . 
+            . . f f d d c e e f f e f . . . 
+            . . . . f f f c d d b d d f . . 
+            . . . . . f f d d d c d d f . . 
+            . . . . . . f f f f f f f . . . 
+            `,img`
+            . . . . . . . f f f f f . . . . 
+            . . . . . . f e e e e e f . . . 
+            . . . . . f e e e d d d d f . . 
+            . . . . f f e e d f d d f d c . 
+            . . . f d d e e d f d d f d c . 
+            . . . c d b e e d d d d e e d c 
+            . . . c d b e e d d c d d d d c 
+            . . . . c f e e e d d c c c c c 
+            . . . . . f f e e e d d d d f . 
+            . . . . f e e e e f f f f f . . 
+            f f . f e e e e e e f f . . . . 
+            f e . f e e f e e f e e f . . . 
+            f e . f e e e f e e f e e f . . 
+            f e f f e f b b f b d f d b f . 
+            f f f f e b d d f d d f d d f . 
+            . f f f f f f f f f f f f f . . 
+            `],
+        75,
+        true
+        )
+    } else {
+        mySprite.setImage(img`
+            . . . . . . . f f f f f . . . . 
+            . . . . . . f e e e e e f . . . 
+            . . . . . f e e e d d d d f . . 
+            . . . . . f e e d f d d f d c . 
+            . . . . f f e e d f d d f d c . 
+            . . . f d d e e d d d d e e d c 
+            . . . c d b e e d d c d d d d c 
+            f f . c d b e e e d d c c c c c 
+            f e f . c f f e e e d d d d f . 
+            f e f . f e e e e f f f f f f . 
+            f e f f e e e e e e e f f f f . 
+            . f f e e e e f e f d d f d d f 
+            . . f e e e e f e f b d f b d f 
+            . . f e f f f f f f f f f f f f 
+            . . f d d c f . . . . . . . . . 
+            . . f f f f . . . . . . . . . . 
+            `)
+        mySprite.setVelocity(0, -70)
+        pause(500)
+        mySprite.setImage(img`
+            . . . . . . . f f f f f . . . . 
+            . . . . f f f e e e e e f . . . 
+            . . . f d d e e e e d d d f . . 
+            . . . c d b e e e d d d d d c . 
+            . . . c d b e e d d d d d d c . 
+            . f f . c f e e d f d d f d d c 
+            f e f . . f e e d f d d f d d c 
+            f e f . . f e e d d d d e e d c 
+            f e f . . f f e e d c d d d f . 
+            f e f . f e e e e e d f f f . . 
+            . f f f e e e e e e e f . . . . 
+            . . f f b e e e e e f f . . . . 
+            . . f f d d c e e f f e f . . . 
+            . . . . f f f c d d b d d f . . 
+            . . . . . f f d d d c d d f . . 
+            . . . . . . f f f f f f f . . . 
+            `)
+        mySprite.setVelocity(0, 70)
+        pause(1000)
+        mySprite.setVelocity(0, 0)
+        animation.runImageAnimation(
+        mySprite,
+        [img`
+            . . . . . . . f f f f f . . . . 
+            . . . . . . f e e e e e f . . . 
+            . . . . . f e e e d d d d f . . 
+            . . . . f f e e d f d d f d c . 
+            . . . f d d e e d f d d f d c . 
+            . . . c d b e e d d d d e e d c 
+            f f . c d b e e d d c d d d d c 
+            f e f . c f e e d d d c c c c c 
+            f e f . . f f e e d d d d d f . 
+            f e f . f e e e e f f f f f . . 
+            f e f f e e e e e e e f . . . . 
+            . f f e e e e f e f f e f . . . 
+            . . f e e e e f e f f e f . . . 
+            . . . f e f f b d f b d f . . . 
+            . . . f d b b d d c d d f . . . 
+            . . . f f f f f f f f f . . . . 
+            `,img`
+            . . . . . . . f f f f f . . . . 
+            . . . . . . f e e e e e f . . . 
+            . . . . . f e e e d d d d f . . 
+            . . . . . f e e d f d d f d c . 
+            . . . . f f e e d f d d f d c . 
+            . . . f d d e e d d d d e e d c 
+            . . . c d b e e d d c d d d d c 
+            f f . c d b e e e d d c c c c c 
+            f e f . c f f e e e d d d d f . 
+            f e f . f e e e e f f f f f f . 
+            f e f f e e e e e e e f f f f . 
+            . f f e e e e f e f d d f d d f 
+            . . f e e e e f e f b d f b d f 
+            . . f e f f f f f f f f f f f f 
+            . . f d d c f . . . . . . . . . 
+            . . f f f f . . . . . . . . . . 
+            `,img`
+            . . . . . . . f f f f f . . . . 
+            . . . . . . f e e e e e f . . . 
+            . . . . f f e e e d d d d f . . 
+            . . . f d d e e d d d d d d c . 
+            . . . c d b e e d f d d f d c . 
+            f f . c d b e e d f d d f d d c 
+            f e f . c f e e d d d d e e d c 
+            f e f . . f e e e d c d d d d c 
+            f e f . . f f e e e d c c c f . 
+            f e f . f e e e e f f f f f . . 
+            . f f f e e e e e e e f . . . . 
+            . . f e e e e f e e f e f f . . 
+            . . f e e e f f f e e f f e f . 
+            . f b f f f f f f c d d b d d f 
+            . f d d c f . . f d d d c d d f 
+            . . f f f . . . f f f f f f f . 
+            `,img`
+            . . . . . . . f f f f f . . . . 
+            . . . . f f f e e e e e f . . . 
+            . . . f d d e e e e d d d f . . 
+            . . . c d b e e e d d d d d c . 
+            . . . c d b e e d d d d d d c . 
+            . f f . c f e e d f d d f d d c 
+            f e f . . f e e d f d d f d d c 
+            f e f . . f e e d d d d e e d c 
+            f e f . . f f e e d c d d d f . 
+            f e f . f e e e e e d f f f . . 
+            . f f f e e e e e e e f . . . . 
+            . . f f b e e e e e f f . . . . 
+            . . f f d d c e e f f e f . . . 
+            . . . . f f f c d d b d d f . . 
+            . . . . . f f d d d c d d f . . 
+            . . . . . . f f f f f f f . . . 
+            `,img`
+            . . . . . . . f f f f f . . . . 
+            . . . . . . f e e e e e f . . . 
+            . . . . . f e e e d d d d f . . 
+            . . . . f f e e d f d d f d c . 
+            . . . f d d e e d f d d f d c . 
+            . . . c d b e e d d d d e e d c 
+            . . . c d b e e d d c d d d d c 
+            . . . . c f e e e d d c c c c c 
+            . . . . . f f e e e d d d d f . 
+            . . . . f e e e e f f f f f . . 
+            f f . f e e e e e e f f . . . . 
+            f e . f e e f e e f e e f . . . 
+            f e . f e e e f e e f e e f . . 
+            f e f f e f b b f b d f d b f . 
+            f f f f e b d d f d d f d d f . 
+            . f f f f f f f f f f f f f . . 
+            `],
+        75,
+        true
+        )
+    }
 })
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     animation.stopAnimation(animation.AnimationTypes.All, mySprite)
     mySprite.setImage(img`
         . . . . . . . f f f f f . . . . 
@@ -275,6 +411,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
 let projectile3: Sprite = null
 let projectile2: Sprite = null
 let projectile: Sprite = null
+let JumpCounter = 0
 let mySprite: Sprite = null
 mySprite = sprites.create(img`
     . . . . f f f f f . . . . . . . 
@@ -294,6 +431,7 @@ mySprite = sprites.create(img`
     . . . f d d c d d b b d f . . . 
     . . . . f f f f f f f f f . . . 
     `, SpriteKind.Player)
+JumpCounter = 0
 mySprite.setStayInScreen(true)
 animation.runImageAnimation(
 mySprite,
@@ -520,19 +658,19 @@ game.onUpdateInterval(5000, function () {
     projectile3 = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . c c c c c c . . . 
-        . . . . . . c 5 5 5 5 5 c c . . 
-        . . . . . c 5 5 5 5 5 5 5 5 c . 
-        . . . . c b b b b b b 5 5 5 c . 
+        . . . . . . c 2 2 2 2 2 c c . . 
+        . . . . . c 2 2 2 2 2 2 2 2 c . 
+        . . . . c b b b b b b 2 2 2 c . 
         . . . . c b b b b 1 b b c c . . 
         . . . . c 1 1 b b 1 1 1 c . . . 
         . . . c 1 1 1 1 b 1 1 1 c . . . 
-        . . . c 1 1 1 1 b 1 1 1 b b c c 
-        . . c c d 1 1 1 b 1 b 1 5 5 5 c 
-        . . c c d 1 c 1 1 1 b 1 b b 5 c 
-        . c c d d 1 1 1 1 1 b 1 f b 5 c 
+        . . . c 1 1 1 f b 1 1 1 b b c c 
+        . . c c d 1 f 1 b 1 b 1 2 2 2 c 
+        . . c c d f c 1 1 1 b 1 b b 2 c 
+        . c c d d 1 1 1 1 1 b 1 f b 2 c 
         f d d d 1 1 1 1 1 b b b f . c c 
-        f f f f f 1 1 1 b b 5 5 5 f . . 
-        . . . . . f f f 5 5 5 5 5 f . . 
+        f f f f f 1 1 1 b b 2 2 2 f . . 
+        . . . . . f f f 2 2 2 2 2 f . . 
         . . . . . . . . f f f f f f . . 
         `, SpriteKind.Projectile)
     projectile3.setVelocity(-150, 0)
