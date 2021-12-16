@@ -516,6 +516,7 @@ if (game.runtime() == 10000) {
     projectile2.vx += -50
     projectile3.vx += -50
 }
+let myCounter2 = info.score()
 game.onUpdateInterval(5000, function () {
     projectile3 = sprites.create(img`
         . . . . . . . . . . . . . . . . 
@@ -537,6 +538,9 @@ game.onUpdateInterval(5000, function () {
         `, SpriteKind.Projectile)
     projectile3.setVelocity(-150, 0)
     projectile3.setPosition(170, 81)
+})
+game.onUpdateInterval(1000, function () {
+    info.changeScoreBy(1)
 })
 game.onUpdateInterval(4000, function () {
     projectile = sprites.create(img`
