@@ -98,6 +98,9 @@ function run () {
     true
     )
 }
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    Jump(mySprite)
+})
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     pause(500)
     run()
@@ -241,6 +244,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
+    scene.cameraShake(4, 200)
     pause(2000)
     if (info.life() <= 1) {
         Banana = sprites.create(img`
@@ -264,16 +268,19 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
         Banana.setPosition(170, 90)
         Banana.setVelocity(-150, 0)
         Banana.setFlag(SpriteFlag.GhostThroughWalls, true)
-        pause(2000)
+        pause(800)
     }
+})
+controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    mySprite.vy = 100
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     info.changeLifeBy(1)
     pause(2000)
 })
-let projectile: Sprite = null
 let projectile3: Sprite = null
 let projectile2: Sprite = null
+let projectile: Sprite = null
 let Banana: Sprite = null
 let statusbar: StatusBarSprite = null
 let JumpCounter = 0
@@ -436,6 +443,29 @@ game.onUpdate(function () {
         JumpCounter = 0
         statusbar.value = 2
     }
+})
+game.onUpdateInterval(5000, function () {
+    projectile = sprites.create(img`
+        . . f f f . . . . . . . . f f f 
+        . f f c c . . . . . . f c b b c 
+        f f c c . . . . . . f c b b c . 
+        f c f c . . . . . . f b c c c . 
+        f f f c c . c c . f c b b c c . 
+        f f c 3 c c 3 c c f b c b b c . 
+        f f b 3 b c 3 b c f b c c b c . 
+        . c 1 b b b 1 b c b b c c c . . 
+        . c 1 b b b 1 b b c c c c . . . 
+        c b b b b b b b b b c c . . . . 
+        c b 1 f f 1 c b b b b f . . . . 
+        f f 1 f f 1 f b b b b f c . . . 
+        f f 2 2 2 2 f b b b b f c c . . 
+        . f 2 2 2 2 b b b b c f . . . . 
+        . . f b b b b b b c f . . . . . 
+        . . . f f f f f f f . . . . . . 
+        `, SpriteKind.Projectile)
+    projectile.setVelocity(-150, 0)
+    projectile.setPosition(170, 45)
+    projectile.setFlag(SpriteFlag.GhostThroughWalls, true)
 })
 game.onUpdateInterval(7000, function () {
     projectile2 = sprites.create(img`
